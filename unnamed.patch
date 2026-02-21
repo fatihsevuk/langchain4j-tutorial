@@ -1,0 +1,268 @@
+Index: src/main/java/com/fatihsevuk/Main.java
+===================================================================
+diff --git a/src/main/java/com/fatihsevuk/Main.java b/src/main/java/com/fatihsevuk/Main.java
+deleted file mode 100644
+--- a/src/main/java/com/fatihsevuk/Main.java
++++ /dev/null
+@@ -1,44 +0,0 @@
+-package com.fatihsevuk;
+-
+-import dev.langchain4j.model.openai.OpenAiChatModel;
+-import java.util.Scanner;
+-
+-
+-public class Main {
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-
+-        System.out.println("Ask me anything (type 'exit' to quit):");
+-
+-        while (true) {
+-            System.out.print("> ");
+-            String question = scanner.nextLine(); // waits until Enter
+-
+-            // exit condition
+-            if (question.equalsIgnoreCase("exit")) {
+-                System.out.println("Goodbye 👋");
+-                break;
+-            }
+-
+-            // process the question
+-            String answer = processQuestion(question);
+-
+-            // print answer
+-            System.out.println(answer);
+-        }
+-
+-        scanner.close();
+-    }
+-
+-    // Example processing logic
+-    private static String processQuestion(String question) {
+-        OpenAiChatModel model = OpenAiChatModel.builder()
+-                .baseUrl("http://langchain4j.dev/demo/openai/v1")
+-                .apiKey("demo")
+-                .modelName("gpt-4o-mini")
+-                .build();
+-
+-        return model.chat(question);
+-    }
+-
+-}
+\ No newline at end of file
+Index: .idea/encodings.xml
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+deleted file mode 100644
+--- a/.idea/encodings.xml
++++ /dev/null
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml
++++ /dev/null
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml
++++ b/.idea/misc.xml	(date 1771635355565)
+@@ -1,14 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" default="true">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: LICENSE
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LICENSE b/LICENSE
+new file mode 100644
+--- /dev/null	(date 1771635274918)
++++ b/LICENSE	(date 1771635274918)
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Fatih Sevük
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1771635274919)
++++ b/README.md	(date 1771635274919)
+@@ -0,0 +1,2 @@
++# langchain4j-tutorial
++LangChain4J Learning Materials
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore
++++ b/.gitignore	(date 1771635274918)
+@@ -1,39 +1,24 @@
+-target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-.kotlin
++# Compiled class file
++*.class
+ 
+-### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
+-*.iws
+-*.iml
+-*.ipr
++# Log file
++*.log
+ 
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
++# BlueJ files
++*.ctxt
+ 
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
++# Mobile Tools for Java (J2ME)
++.mtj.tmp/
+ 
+-### VS Code ###
+-.vscode/
++# Package Files #
++*.jar
++*.war
++*.nar
++*.ear
++*.zip
++*.tar.gz
++*.rar
+ 
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
++# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
++hs_err_pid*
++replay_pid*
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+deleted file mode 100644
+--- a/pom.xml
++++ /dev/null
+@@ -1,33 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <groupId>com.fatihsevuk</groupId>
+-    <artifactId>langchain4j_tutorial</artifactId>
+-    <version>1.0-SNAPSHOT</version>
+-
+-    <properties>
+-        <maven.compiler.source>23</maven.compiler.source>
+-        <maven.compiler.target>23</maven.compiler.target>
+-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    </properties>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>dev.langchain4j</groupId>
+-            <artifactId>langchain4j-open-ai</artifactId>
+-            <version>1.11.0</version>
+-        </dependency>
+-
+-        <dependency>
+-            <groupId>dev.langchain4j</groupId>
+-            <artifactId>langchain4j</artifactId>
+-            <version>1.11.0</version>
+-        </dependency>
+-
+-
+-    </dependencies>
+-
+-</project>
+\ No newline at end of file
